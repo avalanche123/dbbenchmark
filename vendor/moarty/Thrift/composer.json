@@ -1,0 +1,27 @@
+{
+    "name": "moarty/thrift",
+    "description": "Wrapper around PHP's tokenizer extension.",
+    "type": "library",
+    "keywords": [
+        "thrift"
+    ],
+    "authors": [
+        {
+            "name": "Sacha Morard",
+            "email": "sachamorard@moarty.com",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ext-thrift_protocol": "*"
+    },
+    "autoload": {
+        "psr-0": { "Thrift": "lib/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2-dev"
+        }
+    }
+}

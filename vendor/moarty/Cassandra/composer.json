@@ -1,0 +1,31 @@
+{
+    "name": "moarty/cassandra",
+    "description": "Cassandra",
+    "type": "library",
+    "keywords": [
+        "cassandra"
+    ],
+    "authors": [
+        {
+            "name": "Sacha Morard",
+            "email": "sachamorard@moarty.com",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "include-path": [
+        ""
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2-dev"
+        }
+    }
+}

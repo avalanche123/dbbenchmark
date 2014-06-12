@@ -1,0 +1,16 @@
+{
+    "autoload": {
+        "psr-0": { 
+            "": "src/", 
+            "Thrift": "vendor/moarty/Thrift/lib"
+        },
+        "classmap": [
+            "vendor/moarty/Cassandra/src/"
+        ]
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "elasticsearch/elasticsearch": "~1.0"
+    }
+}
+
