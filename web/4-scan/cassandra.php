@@ -4,8 +4,8 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use cassandra\Connection;
 
-$con = new Connection('mykeyspace', '127.0.0.1');
-$res = $con->prepare_cql3_query("SELECT * FROM users WHERE fname = ?");
-$res = $con->execute_prepared_cql3_query($res->itemId, array('toto'));
+$cassandra = new Connection('test', '127.0.0.1');
 
-var_dump($res);
+$resultat = $cassandra->execute_cql3_query("SELECT * FROM user limit 5000");
+
+var_dump(count($resultat->rows));   

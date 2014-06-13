@@ -4,11 +4,12 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use Elasticsearch\Client;
 
-$client = new Client();
+$elasticsearch = new Client();
 $params = array(
     'index' => 'test',
     'type' => 'test',
-    'q' => '*'
+    'q' => '*',
+    'size' => 5000
 );
-$ret = $client->search($params);
-var_dump($ret);
+$resultat = $elasticsearch->search($params);
+var_dump(count($resultat['hits']['hits']));
