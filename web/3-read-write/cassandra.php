@@ -6,6 +6,7 @@ use cassandra\Connection;
 
 $cassandra = new Connection('test', '127.0.0.1');
 
+$res = array();
 for ($index = 0; $index < 100; $index++) {
     $id = rand(0, 1000000);
     $fname = md5($id);

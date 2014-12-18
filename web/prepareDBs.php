@@ -10,8 +10,10 @@ use Elasticsearch\Client;
  * DROP KEYSPACE, DATABASE AND INDEX
  */
 if(isset($_GET['drop'])){
+
     $cassandra = new Connection('system', '127.0.0.1');
     $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE test");
+    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE testbinary");
 
     $elasticsearch = new Client();
     $resElastic = $elasticsearch->indices()->delete(array('index' => 'test'));
@@ -27,7 +29,7 @@ if(isset($_GET['drop'])){
  * CREATE CASSANDRA KEYSPACE AND TABLE
  */
 $cassandra = new Connection('system', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE test WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE test WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
 $cassandra->close();
 
 $cassandra = new Connection('test', '127.0.0.1');
@@ -38,6 +40,24 @@ $cassandra->close();
 
 if($resCassandra){
     echo "Cassandra is ready\n";
+}
+
+
+/*
+ * CREATE CASSANDRA KEYSPACE AND TABLE WITH BINARY PROTOCOL
+ */
+$nodes = ['127.0.0.1'];
+
+// Connect to database.
+$database = new evseevnn\Cassandra\Database($nodes, 'system');
+$database->connect();
+$database->query("CREATE KEYSPACE testbinary WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$database->setKeyspace('testbinary');
+$database->query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
+$res = $database->query("CREATE INDEX ON user (fname)");
+$database->disconnect();
+if($resCassandra){
+    echo "Cassandra with binary protocol is ready\n";
 }
 
 

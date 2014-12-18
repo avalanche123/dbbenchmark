@@ -1,3 +1,78 @@
+## Release 1.3.2
+
+- [DOCS] add details about getLastRequestInfo() [[314112a]](http://github.com/elasticsearch/elasticsearch-php/commit/314112a)
+- [DOCS] Add documentation about connection objects, changing, extending, replacing [[e1cc315]](http://github.com/elasticsearch/elasticsearch-php/commit/e1cc315)
+- [DOCS] Move and expand documentation about connection pools, selectors [[759f8c4]](http://github.com/elasticsearch/elasticsearch-php/commit/759f8c4)
+- Properly instantiate instance-specific params for subclasses of CurlMultiConnection and GuzzleConnection [[d707bf8]](http://github.com/elasticsearch/elasticsearch-php/commit/d707bf8)
+- [DOCS] Tweak the version matrix [[6d9c790]](http://github.com/elasticsearch/elasticsearch-php/commit/6d9c790)
+- [DOCS] (pr/157) Update search-operations.asciidoc [[0c9a749]](http://github.com/elasticsearch/elasticsearch-php/commit/0c9a749)
+- [TEST] bad path in the skiplist [[b3eeae5]](http://github.com/elasticsearch/elasticsearch-php/commit/b3eeae5)
+- [TEST] Update skiplist [[60759a4]](http://github.com/elasticsearch/elasticsearch-php/commit/60759a4)
+- (pr/146) json_decode handling when content type isn't specified. Also some CS fixes. [[0dfbbb2]](http://github.com/elasticsearch/elasticsearch-php/commit/0dfbbb2)
+- Throw exception instead of supressing error reporting momentarily. [[ebeabb5]](http://github.com/elasticsearch/elasticsearch-php/commit/ebeabb5)
+- Supress potential E_NOTICES about integer overflows due to unusually high/low scores. [[9b22a3c]](http://github.com/elasticsearch/elasticsearch-php/commit/9b22a3c)
+- [TEST] Remove ignored tests [[693ceec]](http://github.com/elasticsearch/elasticsearch-php/commit/693ceec)
+- (pr/149) fix logRequestFail bad method call [[5e63662]](http://github.com/elasticsearch/elasticsearch-php/commit/5e63662)
+- Store last request response data before processing any errors. [[9b9f64a]](http://github.com/elasticsearch/elasticsearch-php/commit/9b9f64a)
+
+## Release 1.3.1
+- Add LGPL v2.1 license - Elasticsearch-PHP is now dual licensed under both Apache v2.0 & LGPL v2.1 [[8071d10]](http://github.com/elasticsearch/elasticsearch-php/commit/8071d1085f4d9cde5016dcf9fd28023e25f8e77a)
+
+## Release 1.3.0
+- e8b6ffa Add parameters white list to InvalidParameter exception message
+- c1e8d1f Add Snapshot/Verify endpoint
+- 165ef1d Update Monolog dependency to ~1.11
+- 29ebbec Trim whitespace around index and types
+- 607104c Add 'realtime' param to TermVector and MTermVector Endpoints
+- de889d1 Update php-version-requirement.asciidoc
+- 0d74862 [DOCS] Add documentation about scan/scroll APIs
+- f0e8ca9 Add missing curl info for guzzle connection on successful request.
+- b0fd50a Remove old tests that conflict with newer integration tests
+- 3c10afe Prevent CurlMultiConnection from over-riding curl options
+- 9d4af75 Add 'version' and 'version_type' to GetScript and DeleteScript Endpoints
+- 34f0333 Add 'version' and 'op_type' to Put Script Endpoint
+- 24d6cb0 Indices/Get endpoint should use GET HTTP method
+- 5109154 Add 'version_type' to Put Script Endpoint
+- 682164c Add 'metric' param to Reroute Endpoint
+- cd0de7e Add Indices/Get endpoint
+- 4746b74 changed "strong" to adverb "strongly"
+- a874ac7 Updkate indexing-operations.asciidoc
+- f95d403 [DOCS] Add documentation for custom query params
+- 2c8ecd9 [DOCS] Fix documentation formatting
+- da1953c Add ability to specify custom query params
+- 5d05515 Add wildcard_expansion param to getMapping endpoint
+- 9b88589 Added log permission and bubble to settings
+
+## Release 1.2.2
+ - Changed the guzzle requirement to the HTTP component only [[aec04a2]](http://github.com/elasticsearch/elasticsearch-php/commit/aec04a27bf0382e7d2754effdfd641f0388eda83)
+ - comma fix [[8f623e2]](http://github.com/elasticsearch/elasticsearch-php/commit/8f623e2200e9c8346a43b4a8e645601d3e7df2fd)
+ - Remove usage of Pimple class with new Pimple\Container class, bump pimple version to 2.1 [[6470863]](http://github.com/elasticsearch/elasticsearch-php/commit/6470863bb1540bcce2431c95259f1b8248bf07b0)
+ - Update README.md [[f82569f]](http://github.com/elasticsearch/elasticsearch-php/commit/f82569f8ee85bb3c3a853b186ec23b1f94357eed)
+ - [DOCS] Add explanation of common JSON patterns in PHP [[36861fb]](http://github.com/elasticsearch/elasticsearch-php/commit/36861fb37e329cd060e741ec14a7f1643194706a)
+ - [DOCS] Add advanced example of creating an index [[8817599]](http://github.com/elasticsearch/elasticsearch-php/commit/88175990da7fd8467424d8aa574d7ba8797ac187)
+ - Fix casing of class [[0768b5e]](http://github.com/elasticsearch/elasticsearch-php/commit/0768b5ed85c61c5086dba8ac7b6517b94f11a085)
+ - [DOCS] Elasticsearch does not need to run in daemon mode for tests [[ee4c9a3]](http://github.com/elasticsearch/elasticsearch-php/commit/ee4c9a3f82d10cf103288ebb06b4a843188f8e89)
+ - [TEST] Add some logging to RestSpecRunner [[a9376d4]](http://github.com/elasticsearch/elasticsearch-php/commit/a9376d4b99a75b762614f625b209334e717e0335)
+ - Add Get/Put/Delete Script endpoints [[07ddc97]](http://github.com/elasticsearch/elasticsearch-php/commit/07ddc977cf47c4a2ac6b17eb451c517aa9f59b4f)
+ - ScriptLangNotSupported exception should extended BadRequest400 [[02784fd]](http://github.com/elasticsearch/elasticsearch-php/commit/02784fd4bce6d4d8281099a19e064d74c7968ee5)
+ - Add Get/Put/Delete Template endpoints [[f003010]](http://github.com/elasticsearch/elasticsearch-php/commit/f0030100bac400c7490600c9e49a3bb093e8db85)
+ - [TEST] Add timestamp to yaml runner [[b0d351f]](http://github.com/elasticsearch/elasticsearch-php/commit/b0d351f33b3a1b38990e64aa265e67d734843dd8)
+
+## Release 1.2.0
+ - Add Snapshot/Status endpoint [[f88d7ca]](http://github.com/elasticsearch/elasticsearch-php/commit/f88d7ca1e8e50229862175aed418c4a6dc4352cd)
+ - Add Snapshot/Status implementation [[ed85658]](http://github.com/elasticsearch/elasticsearch-php/commit/ed85658c88f6e3542e6865b5f4394de40b400b07)
+ - [DOCS] Fix typo [[90aeea4]](http://github.com/elasticsearch/elasticsearch-php/commit/90aeea4dfcdac2a91ffb97c27d841413c6b1753b)
+ - [TEST] Reconfigure regex parsing/matching [[3d8cc12]](http://github.com/elasticsearch/elasticsearch-php/commit/3d8cc1298a8145bb4239f190dbbe43d482f9abe2)
+ - [TEST] Fix incorrect feature-skip behavior [[ad10df9]](http://github.com/elasticsearch/elasticsearch-php/commit/ad10df9e3fa5870fca9ed1c6bd60fe560e3157dc)
+ - Add Cat/Fielddata endpoint [[950fbaa]](http://github.com/elasticsearch/elasticsearch-php/commit/950fbaad0e6a0ae0301b91638a833b0c0c985d82)
+ - Fix Cat/Fielddata endpoint URI [[4ea7149]](http://github.com/elasticsearch/elasticsearch-php/commit/4ea7149cb8a808af0ab66067c4f700397ec20f1d)
+ - [TEST] Improve Regex debugging output [[f93837a]](http://github.com/elasticsearch/elasticsearch-php/commit/f93837a81122f3306738de55629f1946746415fd)
+ - Update CONTRIBUTING.md [[f3a39a7]](http://github.com/elasticsearch/elasticsearch-php/commit/f3a39a7389167c7b5c378fe0647431459b5dfc8d)
+ - Update Pimple to 2.0 [[e1cc94e]](http://github.com/elasticsearch/elasticsearch-php/commit/e1cc94e5e8275d59e448f66319553377edef84ad)
+ - Add 'create' param to Indices/PutTemplate API [[b06ed72]](http://github.com/elasticsearch/elasticsearch-php/commit/b06ed72d432354e72ad7496678b9fa55593a6b4a)
+ - Add metric param to Indices/Stats endpoint [[8dace3f]](http://github.com/elasticsearch/elasticsearch-php/commit/8dace3fc2f4041a982f7f7f3c0d33421ab5fc6c5)
+ - Fix logging of response errors [[7d91545]](http://github.com/elasticsearch/elasticsearch-php/commit/7d915455d3e14ef9ba68c82681040c8d91aad6c8)
+
 ## Release 1.1.0
  - [DOCS] Add more examples of bulk indexing/updating [[6d25569]](http://github.com/elasticsearch/elasticsearch-php/commit/6d25569c74ef3cc9439a4078cc3ca478f137f41a)
  - [DOCS] Add updateAlias example [[a75b7f2]](http://github.com/elasticsearch/elasticsearch-php/commit/a75b7f20210cda7dc54b3613b7d60c849caa8996)

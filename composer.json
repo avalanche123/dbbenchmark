@@ -10,7 +10,8 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "elasticsearch/elasticsearch": "~1.0"
+        "elasticsearch/elasticsearch": "~1.0",
+        "evseevnn/php-cassandra-binary": "dev-master"
     }
 }
 

@@ -1,0 +1,31 @@
+Rapport de test
+
+On lance un siege comme suit : siege -b -c10 -v -t5S http://local.dbbenchmark.com/1-write/cassandra.php
+
+1-write :
+
+cassandra via thrift
+cassandra via binary protocol
+elasticsearch
+mysql
+
+2-read :
+
+cassandra via thrift
+cassandra via binary protocol
+elasticsearch
+mysql
+
+3-read-write :
+
+cassandra via thrift
+cassandra via binary protocol
+elasticsearch
+mysql
+
+4-scan :
+
+cassandra via thrift
+cassandra via binary protocol
+elasticsearch
+mysql
