@@ -9,34 +9,35 @@ use Elasticsearch\Client;
 /*
  * DROP KEYSPACE, DATABASE AND INDEX
  */
-if(isset($_GET['drop'])){
+$cassandra = new Connection('system', '127.0.0.1');
+$resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS thrift");
+$resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS binary");
+$resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS ext");
 
-    $cassandra = new Connection('system', '127.0.0.1');
-    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS thrift");
-    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS binary");
-    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS ext");
-
-    $elasticsearch = new Client();
+$elasticsearch = new Client();
+if($elasticsearch->indices()->exists(array('index' => 'test'))){
     $resElastic = $elasticsearch->indices()->delete(array('index' => 'test'));
-
-    $mysql = new PDO('mysql:host=localhost;port=3306;dbname=test', 'root', "");
-    $resMysql = $mysql->query("DROP DATABASE IF EXISTS test");
-    
-    echo "Drop !\n";
-    die();
 }
+
+try{
+    $mysql = new PDO('mysql:host=localhost;port=3306;dbname=test', 'root', "");
+    $resMysql = $mysql->query("DROP DATABASE test IF EXISTS");
+}catch(\PDOException $e){
+
+}
+
 
 /*
  * CREATE CASSANDRA KEYSPACE AND TABLE
  */
 $cassandra = new Connection('system', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE thrift WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE IF NOT EXISTS thrift WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
 $cassandra->close();
 
 $cassandra = new Connection('thrift', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
+$resCassandra = $cassandra->execute_cql3_query("CREATE TABLE IF NOT EXISTS user (id int PRIMARY KEY, fname text, lname text, description text)");
 
-$res = $cassandra->execute_cql3_query("CREATE INDEX ON user (fname)");
+$res = $cassandra->execute_cql3_query("CREATE INDEX IF NOT EXISTS ON user (fname)");
 $cassandra->close();
 
 if($resCassandra){
@@ -45,13 +46,13 @@ if($resCassandra){
 
 
 $cassandra = new Connection('system', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE ext WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE IF NOT EXISTS ext WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
 $cassandra->close();
 
 $cassandra = new Connection('ext', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
+$resCassandra = $cassandra->execute_cql3_query("CREATE TABLE IF NOT EXISTS user (id int PRIMARY KEY, fname text, lname text, description text)");
 
-$res = $cassandra->execute_cql3_query("CREATE INDEX ON user (fname)");
+$res = $cassandra->execute_cql3_query("CREATE INDEX IF NOT EXISTS ON user (fname)");
 $cassandra->close();
 
 if($resCassandra){
@@ -67,10 +68,10 @@ $nodes = ['127.0.0.1'];
 // Connect to database.
 $database = new evseevnn\Cassandra\Database($nodes, 'system');
 $database->connect();
-$database->query("CREATE KEYSPACE binary WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$database->query("CREATE KEYSPACE IF NOT EXISTS binary WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
 $database->setKeyspace('binary');
-$database->query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
-$res = $database->query("CREATE INDEX ON user (fname)");
+$database->query("CREATE TABLE IF NOT EXISTS user (id int PRIMARY KEY, fname text, lname text, description text)");
+$res = $database->query("CREATE INDEX IF NOT EXISTS ON user (fname)");
 $database->disconnect();
 if($resCassandra){
     echo "Cassandra with binary protocol is ready\n";
@@ -82,20 +83,10 @@ if($resCassandra){
  */
 $elasticsearch = new Client();
 $indexParams['index']  = 'test';
-$indexParams['body']  = array(
-    'settings' => array(
-        'index' => array(
-            'analysis' => array(
-                'analyzer' => array(
-                    'my_french' => array(
-                        'type' => 'french'
-                    )
-                )
-            )
-        ),
-    )
-);
-$elasticsearch->indices()->create($indexParams);
+if(!$elasticsearch->indices()->exists(array('index' => 'test'))){
+    $elasticsearch->indices()->create($indexParams);
+}
+
 
 $indexParams = array(
     'index' => 'test',
