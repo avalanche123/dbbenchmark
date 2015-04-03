@@ -31,28 +31,28 @@ This script drop and create all tables, database, keyspace, index you need.
 
 Finally, you have to test these following urls :
 
-http://local.dbbenchmark.com/1-write/cassandra-ext.php
-http://local.dbbenchmark.com/1-write/cassandra-thrift.php
-http://local.dbbenchmark.com/1-write/cassandra-binary.php
-http://local.dbbenchmark.com/1-write/elasticsearch.php
-http://local.dbbenchmark.com/1-write/mysql.php
+http://local.dbbenchmark.com/1-write/cassandra-ext.php  
+http://local.dbbenchmark.com/1-write/cassandra-thrift.php  
+http://local.dbbenchmark.com/1-write/cassandra-binary.php  
+http://local.dbbenchmark.com/1-write/elasticsearch.php  
+http://local.dbbenchmark.com/1-write/mysql.php  
+  
+http://local.dbbenchmark.com/2-read/cassandra-ext.php  
+http://local.dbbenchmark.com/2-read/cassandra-thrift.php    
+http://local.dbbenchmark.com/2-read/cassandra-binary.php  
+http://local.dbbenchmark.com/2-read/elasticsearch.php  
+http://local.dbbenchmark.com/2-read/mysql.php  
 
-http://local.dbbenchmark.com/2-read/cassandra-ext.php
-http://local.dbbenchmark.com/2-read/cassandra-thrift.php
-http://local.dbbenchmark.com/2-read/cassandra-binary.php
-http://local.dbbenchmark.com/2-read/elasticsearch.php
-http://local.dbbenchmark.com/2-read/mysql.php
+http://local.dbbenchmark.com/3-read-write/cassandra-ext.php  
+http://local.dbbenchmark.com/3-read-write/cassandra-thrift.php  
+http://local.dbbenchmark.com/3-read-write/cassandra-binary.php  
+http://local.dbbenchmark.com/3-read-write/elasticsearch.php  
+http://local.dbbenchmark.com/3-read-write/mysql.php  
 
-http://local.dbbenchmark.com/3-read-write/cassandra-ext.php
-http://local.dbbenchmark.com/3-read-write/cassandra-thrift.php
-http://local.dbbenchmark.com/3-read-write/cassandra-binary.php
-http://local.dbbenchmark.com/3-read-write/elasticsearch.php
-http://local.dbbenchmark.com/3-read-write/mysql.php
-
-http://local.dbbenchmark.com/4-scan/cassandra-ext.php
-http://local.dbbenchmark.com/4-scan/cassandra-thrift.php
-http://local.dbbenchmark.com/4-scan/cassandra-binary.php
-http://local.dbbenchmark.com/4-scan/elasticsearch.php
-http://local.dbbenchmark.com/4-scan/mysql.php
+http://local.dbbenchmark.com/4-scan/cassandra-ext.php  
+http://local.dbbenchmark.com/4-scan/cassandra-thrift.php  
+http://local.dbbenchmark.com/4-scan/cassandra-binary.php  
+http://local.dbbenchmark.com/4-scan/elasticsearch.php  
+http://local.dbbenchmark.com/4-scan/mysql.php  
 
 Here we go. Have fun !
