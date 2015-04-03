@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.3.3",
         "elasticsearch/elasticsearch": "~1.0",
-        "evseevnn/php-cassandra-binary": "dev-master"
+        "evseevnn/php-cassandra-binary": "dev-master",
+        "datastax/php-driver": "1.0.0-alpha"
     }
 }
-

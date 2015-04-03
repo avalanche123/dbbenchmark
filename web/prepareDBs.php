@@ -12,14 +12,15 @@ use Elasticsearch\Client;
 if(isset($_GET['drop'])){
 
     $cassandra = new Connection('system', '127.0.0.1');
-    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE test");
-    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE testbinary");
+    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS thrift");
+    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS binary");
+    $resCassandra = $cassandra->execute_cql3_query("DROP KEYSPACE IF EXISTS ext");
 
     $elasticsearch = new Client();
     $resElastic = $elasticsearch->indices()->delete(array('index' => 'test'));
 
     $mysql = new PDO('mysql:host=localhost;port=3306;dbname=test', 'root', "");
-    $resMysql = $mysql->query("DROP DATABASE test"); 
+    $resMysql = $mysql->query("DROP DATABASE IF EXISTS test");
     
     echo "Drop !\n";
     die();
@@ -29,17 +30,32 @@ if(isset($_GET['drop'])){
  * CREATE CASSANDRA KEYSPACE AND TABLE
  */
 $cassandra = new Connection('system', '127.0.0.1');
-$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE test WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE thrift WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
 $cassandra->close();
 
-$cassandra = new Connection('test', '127.0.0.1');
+$cassandra = new Connection('thrift', '127.0.0.1');
 $resCassandra = $cassandra->execute_cql3_query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
 
 $res = $cassandra->execute_cql3_query("CREATE INDEX ON user (fname)");
 $cassandra->close();
 
 if($resCassandra){
-    echo "Cassandra is ready\n";
+    echo "Cassandra with Thrift is ready\n";
+}
+
+
+$cassandra = new Connection('system', '127.0.0.1');
+$resCassandra = $cassandra->execute_cql3_query("CREATE KEYSPACE ext WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$cassandra->close();
+
+$cassandra = new Connection('ext', '127.0.0.1');
+$resCassandra = $cassandra->execute_cql3_query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
+
+$res = $cassandra->execute_cql3_query("CREATE INDEX ON user (fname)");
+$cassandra->close();
+
+if($resCassandra){
+    echo "Cassandra with Extension is ready\n";
 }
 
 
@@ -51,8 +67,8 @@ $nodes = ['127.0.0.1'];
 // Connect to database.
 $database = new evseevnn\Cassandra\Database($nodes, 'system');
 $database->connect();
-$database->query("CREATE KEYSPACE testbinary WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
-$database->setKeyspace('testbinary');
+$database->query("CREATE KEYSPACE binary WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
+$database->setKeyspace('binary');
 $database->query("CREATE TABLE user (id int PRIMARY KEY, fname text, lname text, description text)");
 $res = $database->query("CREATE INDEX ON user (fname)");
 $database->disconnect();

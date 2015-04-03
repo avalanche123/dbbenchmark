@@ -5,7 +5,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 $nodes = ['127.0.0.1'];
 
 // Connect to database.
-$database = new evseevnn\Cassandra\Database($nodes, 'testbinary');
+$database = new evseevnn\Cassandra\Database($nodes, 'binary');
 $database->connect();
 
 $res = array();
