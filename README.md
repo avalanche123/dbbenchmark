@@ -1,6 +1,8 @@
 Test report
 ===========
 
+First of all, see how to install
+
 We launch a siege like that : siege -b -c10 -t5S http://local.dbbenchmark.com/1-write/cassandra-ext.php
 
 1) Write
