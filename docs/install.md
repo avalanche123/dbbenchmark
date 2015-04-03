@@ -1,7 +1,7 @@
 How to Install
 ==============
 
-I ran this benchmark with php-fpm 5.6, nginx, cassandra 2.0, elasticsearch 1.5, mysql 5.6 and MariaDb 10.0.17
+I ran this benchmark with php-fpm 5.6, nginx, cassandra 2.0, elasticsearch 1.5, mysql 5.6 and MariaDb 10.0.17, on my machine (Ubuntu 14.04.2 LTS 64 Bits, 16G Ram, Intel® Xeon(R) CPU E3-1270 v3 @ 3.50GHz × 8)
 
 You could find my nginx conf [here](nginx.conf).
 You just have to configure your vhost to point on web/ directory.
