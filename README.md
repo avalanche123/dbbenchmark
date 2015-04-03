@@ -5,7 +5,7 @@ We launch a siege like that : siege -b -c10 -t5S http://local.dbbenchmark.com/1-
 
 1) Write
 
-    cassandra via datastax extension  :  597 hits | 126.75 req/sec
+    cassandra via datastax extension  :  612 hits | 136.61 req/sec
     cassandra via thrift              :  960 hits | 205.13 req/sec
     cassandra via binary protocol     :  300 hits |  71.43 req/sec
     elasticsearch                     :  179 hits |  40.68 req/sec

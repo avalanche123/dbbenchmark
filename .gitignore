@@ -1,2 +1,12 @@
 /nbproject
 /.idea
+/vendor/composer
+/vendor/datastax
+/vendor/elasticsearch
+/vendor/evseevnn
+/vendor/guzzle
+/vendor/monolog
+/vendor/pimple
+/vendor/psr
+/vendor/symfony
+/vendor/autoload.php

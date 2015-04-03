@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "15b7d86ae6950d6ee5796a3f1bc2d6f1",
+    "hash": "19840c550a91192829e8beb70f2e557e",
     "packages": [
         {
             "name": "datastax/php-driver",
-            "version": "v1.0.0-alpha",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/datastax/php-driver.git",
-                "reference": "8291f952ff729d28ef08044871a7978196ec5482"
+                "reference": "57dc5be12231b12bbcde32ed384481b5c5bbca75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/datastax/php-driver/zipball/8291f952ff729d28ef08044871a7978196ec5482",
-                "reference": "8291f952ff729d28ef08044871a7978196ec5482",
+                "url": "https://api.github.com/repos/datastax/php-driver/zipball/57dc5be12231b12bbcde32ed384481b5c5bbca75",
+                "reference": "57dc5be12231b12bbcde32ed384481b5c5bbca75",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "driver",
                 "nosql"
             ],
-            "time": "2015-04-02 16:27:06"
+            "time": "2015-04-03 14:39:35"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -476,7 +476,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "evseevnn/php-cassandra-binary": 20,
-        "datastax/php-driver": 15
+        "datastax/php-driver": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
