@@ -6,9 +6,8 @@ $cluster = Cassandra::cluster()->build();
 $session   = $cluster->connect('ext');
 
 $statement = new Cassandra\SimpleStatement("SELECT * FROM user limit 5000");
-$future    = $session->executeAsync($statement);
 /** @var \Cassandra\Rows $result */
-$result    = $future->get();
+$result    = $session->execute($statement);
 
 
 var_dump($result->count());
