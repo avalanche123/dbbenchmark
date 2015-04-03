@@ -3,7 +3,14 @@ Test report
 
 To have the following metrics, we launched siege like that : siege -b -c10 -t5S http://local.dbbenchmark.com/1-write/cassandra-ext.php
 
+Tests run on my own machine : Ubuntu 14.04.2 LTS 64 Bits, 16G Ram, Intel® Xeon(R) CPU E3-1270 v3 @ 3.50GHz × 8
+
+I know, this is not a distant server... but metrics are usefull however...
+
 To know more, see [how to install](docs/install.md)
+
+Benchmark Results
+----------------
 
 1) Write
 
