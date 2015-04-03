@@ -1,9 +1,9 @@
 Test report
 ===========
 
-First of all, see [how to install](docs/install.md)
+To have the following metrics, we launched siege like that : siege -b -c10 -t5S http://local.dbbenchmark.com/1-write/cassandra-ext.php
 
-We launch a siege like that : siege -b -c10 -t5S http://local.dbbenchmark.com/1-write/cassandra-ext.php
+To know more, see [how to install](docs/install.md)
 
 1) Write
 
