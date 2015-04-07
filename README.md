@@ -23,8 +23,8 @@ Benchmark Results
 
 2) Read
 
-    cassandra via datastax extension  :  605 hits | 128.18 req/sec
-    cassandra via thrift              :  900 hits | 198.24 req/sec
+    cassandra via datastax extension  :  664 hits | 156.54 req/sec
+    cassandra via thrift              :  874 hits | 196.85 req/sec
     cassandra via binary protocol     :  260 hits |  61.90 req/sec
     elasticsearch                     :  160 hits |  33.33 req/sec
     mysql                             : 2856 hits | 667.29 req/sec
@@ -32,8 +32,8 @@ Benchmark Results
 
 3) Read/Write
 
-    cassandra via datastax extension  :  409 hits |  98.08 req/sec
-    cassandra via thrift              :  505 hits | 102.44 req/sec
+    cassandra via datastax extension  :  488 hits | 117.87 req/sec
+    cassandra via thrift              :  488 hits | 111.42 req/sec
     cassandra via binary protocol     :  163 hits |  33.06 req/sec
     elasticsearch                     :  110 hits |  22.13 req/sec
     mysql                             :   22 hits |   5.02 req/sec
@@ -41,8 +41,8 @@ Benchmark Results
 
 4) Scan
 
-    cassandra via datastax extension  :  234 hits |  55.58 req/sec
-    cassandra via thrift              :  211 hits |  42.20 req/sec
+    cassandra via datastax extension  :  325 hits |  66.60 req/sec
+    cassandra via thrift              :  168 hits |  41.38 req/sec
     cassandra via binary protocol     :   13 hits |   2.84 req/sec
     elasticsearch                     :  122 hits |  29.90 req/sec
     mysql                             : 1675 hits | 379.82 req/sec
