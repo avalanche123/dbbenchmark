@@ -13,7 +13,7 @@ for ($index = 0; $index < 100; $index++) {
     $fname = md5($id);
     $lname = sha1($id);
     $description = $fname . $lname;
-    $options->args = array($id, $fname, $lname, $description);
+    $options->arguments = array($id, $fname, $lname, $description);
     $futures[]= $session->executeAsync($statement, $options);
 }
 

@@ -14,26 +14,26 @@ Benchmark Results
 
 1) Write
 
-    cassandra via datastax extension  :  612 hits | 136.61 req/sec
-    cassandra via thrift              :  960 hits | 205.13 req/sec
-    cassandra via binary protocol     :  300 hits |  71.43 req/sec
+    cassandra via datastax extension  :  641 hits | 140.57 req/sec
+    cassandra via thrift              : 1081 hits | 230.93 req/sec
+    cassandra via binary protocol     :  325 hits |  69.59 req/sec
     elasticsearch                     :  285 hits |  58.64 req/sec
     mysql                             :   22 hits |   5.34 req/sec
     mariaDb                           :   25 hits |   5.64 req/sec
 
 2) Read
 
-    cassandra via datastax extension  :  345 hits |  82.18 req/sec
-    cassandra via thrift              :  798 hits | 180.95 req/sec
-    cassandra via binary protocol     :  259 hits |  61.67 req/sec
+    cassandra via datastax extension  :  605 hits | 128.18 req/sec
+    cassandra via thrift              :  900 hits | 198.24 req/sec
+    cassandra via binary protocol     :  260 hits |  61.90 req/sec
     elasticsearch                     :  160 hits |  33.33 req/sec
     mysql                             : 2856 hits | 667.29 req/sec
     mariaDb                           : 1280 hits | 285.47 req/sec
 
 3) Read/Write
 
-    cassandra via datastax extension  :  297 hits |  63.36 req/sec
-    cassandra via thrift              :  463 hits | 103.81 req/sec
+    cassandra via datastax extension  :  409 hits |  98.08 req/sec
+    cassandra via thrift              :  505 hits | 102.44 req/sec
     cassandra via binary protocol     :  163 hits |  33.06 req/sec
     elasticsearch                     :  110 hits |  22.13 req/sec
     mysql                             :   22 hits |   5.02 req/sec
@@ -41,8 +41,8 @@ Benchmark Results
 
 4) Scan
 
-    cassandra via datastax extension  :  287 hits |  61.32 req/sec
-    cassandra via thrift              :  171 hits |  40.52 req/sec
+    cassandra via datastax extension  :  234 hits |  55.58 req/sec
+    cassandra via thrift              :  211 hits |  42.20 req/sec
     cassandra via binary protocol     :   13 hits |   2.84 req/sec
     elasticsearch                     :  122 hits |  29.90 req/sec
     mysql                             : 1675 hits | 379.82 req/sec
