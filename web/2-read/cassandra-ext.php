@@ -4,7 +4,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 $cluster = Cassandra::cluster()->build();
 $session   = $cluster->connect('ext');
-$statement = new Cassandra\SimpleStatement("SELECT * FROM user WHERE id = ?");
+$statement = $session->prepare("SELECT * FROM user WHERE id = ?");
 $options   = new Cassandra\ExecutionOptions();
 $futures   = array();
 
