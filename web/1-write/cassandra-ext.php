@@ -6,7 +6,7 @@ $cluster = Cassandra::cluster()->build();
 $session   = $cluster->connect('ext');
 
 $futures = array();
-$statement = new Cassandra\SimpleStatement("INSERT INTO user (id, fname, lname, description) VALUES (?, ?, ?, ?)");
+$statement = $session->prepare("INSERT INTO user (id, fname, lname, description) VALUES (?, ?, ?, ?)");
 $options = new Cassandra\ExecutionOptions();
 for ($index = 0; $index < 100; $index++) {
     $id = rand(0, 1000000);
