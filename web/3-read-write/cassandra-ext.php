@@ -7,7 +7,7 @@ $session   = $cluster->connect('ext');
 
 // BEGIN WRITES
 $futures = array();
-$statement = new Cassandra\SimpleStatement("INSERT INTO user (id, fname, lname, description) VALUES (?, ?, ?, ?)");
+$statement = $session->prepare("INSERT INTO user (id, fname, lname, description) VALUES (?, ?, ?, ?)");
 $options = new Cassandra\ExecutionOptions();
 for ($index = 0; $index < 100; $index++) {
     $id = rand(0, 1000000);
@@ -27,7 +27,7 @@ var_dump($index);
 
 // BEGIN READS
 $futures = array();
-$statement = new Cassandra\SimpleStatement("SELECT * FROM user WHERE id = ?");
+$statement = $session->prepare("SELECT * FROM user WHERE id = ?");
 for ($index = 0; $index < 100; $index++) {
     $options->arguments = array(rand(0, 1000000));
     $futures[]= $session->executeAsync($statement, $options);
